@@ -1,0 +1,64 @@
+.page {
+  background-color: #122023;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.title {
+  font-size: 100px;
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  color: #ffffff; /* Ensure the title is visible */
+}
+
+.logo {
+  width: 800px;
+  margin-bottom: 70px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Space between input fields */
+}
+
+.input-field {
+  background-color: #E0DBC6;
+  color: #122023;
+  border: none;
+  border-radius: 25px;
+  padding: 30px 60px;
+  font-size: 30px;
+  font-family: 'DM Serif Text', serif;
+  font-style: italic;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Increased space between buttons */
+}
+
+.start-button {
+  background-color: #E0DBC6;
+  color: #122023;
+  border: none;
+  border-radius: 25px;
+  padding: 30px 60px;
+  font-size: 30px;
+  font-family: 'DM Serif Text', serif;
+  font-style: italic;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+.start-button:hover {
+  background-color: #d5d0ba;
+}
+
+.login-button {
+  margin-top: 30px; /* Add space above the button */
+}
