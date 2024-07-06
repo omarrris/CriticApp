@@ -6,11 +6,10 @@ const GenreSchema = new mongoose.Schema({
     required: true,
   },
   image: {
-    type: String, // URL of the genre image
+    type: String,
     required: true,
   },
 });
 
-const Genre = mongoose.model('Genre', GenreSchema);
 
-module.exports = Genre;
+module.exports = mongoose.model('Genre', GenreSchema);
