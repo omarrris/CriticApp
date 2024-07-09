@@ -1,14 +1,37 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-const UserSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  genres: [String],
-  list: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }],
-  ratedMovies: [{
-    movie: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie' },
-    rating: { type: Number, min: 0.5, max: 5.0 } // Ratings in increments of 0.5
-  }]
+const ratedMovieSchema = new mongoose.Schema({
+    movieId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Movie',
+    },
+    rating: Number,
 });
 
-module.exports = mongoose.model('User', UserSchema);
+const userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required: true,
+    },
+    genres: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Genre',
+        },
+    ],
+    ratedMovies: [ratedMovieSchema],
+    list: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Movie',
+        },
+    ],
+});
+
+module.exports = mongoose.model('User', userSchema);

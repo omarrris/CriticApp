@@ -1,10 +1,32 @@
 const mongoose = require('mongoose');
 
-const FestivalSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  logo: { type: String },
-  history: { type: String },
-  movies: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Movie' }]
+const movieSchema = new mongoose.Schema({
+    genre: String,
+    movie: String,
+    year: Number,
+    director: String,
+    poster: String,
+    runtime: String,
+    rating: String,
+    rottenTomatoesScore: Number,
+    imdbRating: Number,
+    synopsis: String,
 });
 
-module.exports = mongoose.model('Festival', FestivalSchema);
+const festivalSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    image: {
+        type: String,
+        required: true,
+    },
+    history: {
+        type: String,
+        required: true,
+    },
+    movies: [movieSchema],
+});
+
+module.exports = mongoose.model('Festival', festivalSchema);
