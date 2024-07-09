@@ -12,19 +12,5 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Create a new genre
-router.post('/', async (req, res) => {
-  const genre = new Genre({
-    name: req.body.name,
-    image: req.body.image,
-  });
-
-  try {
-    const newGenre = await genre.save();
-    res.status(201).json(newGenre);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
 
 module.exports = router;
