@@ -1,14 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const Director = require('../models/Director');
+const { getAllDirectors, getDirectorById } = require('../controllers/directorController');
 
-router.get('/', async (req, res) => {
-    try {
-        const directors = await Director.find();
-        res.json(directors);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
-    }
+// Get all directors
+router.get('/', getAllDirectors);
+
+// Get a director by ID
+router.get('/:id', getDirectorById, (req, res) => {
+    res.json(res.director);
 });
 
 module.exports = router;
